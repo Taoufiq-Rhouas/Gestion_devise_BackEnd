@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 // const {checkUserIsExist, signup, getUserTotalAmount, checkUserTotalAmount, checkWalletTotalAmount, buyCrypto, sellCrypto, addBuyToWallet, addSellToWallet, getuserUnfo, getProfileInfo} = require('../controllers/userController')
 // const {addMoneyToWallet, signup} = require('../controllers/userController')
-const {signup,checkUserIsExistAndDeposit} = require('../controllers/userController');
+const {signup,checkUserIsExistAndDeposit,getProfileInfo,getuserUnfo} = require('../controllers/userController');
 // const {getUserTotalAmount, checkUserTotalAmount, checkWalletTotalAmount, buyCrypto, sellCrypto, addBuyToWallet, addSellToWallet} = require('../controllers/userController')
 
 // const {SignUpValidator} = require('../middllwars/signInAndsignUpValidator')
@@ -13,7 +13,7 @@ router.put('/Deposit/',checkUserIsExistAndDeposit);
 // router.post('/addMoneyToWallet', addMoneyToWallet)
 // router.post('/buy', getUserTotalAmount, checkUserTotalAmount, buyCrypto, addBuyToWallet)
 // router.post('/sell', getUserTotalAmount, checkWalletTotalAmount, sellCrypto, addSellToWallet)
-// router.get('/info/:email', getProfileInfo, getuserUnfo)
+router.get('/info/:email', getProfileInfo, getuserUnfo)
 
 module.exports = router
 

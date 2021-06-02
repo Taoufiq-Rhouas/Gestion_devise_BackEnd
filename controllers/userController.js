@@ -68,23 +68,33 @@ exports.checkUserIsExistAndDeposit = async (req, res) => {
         return res.json({userInfo: updateUser})
 
     res.status(400).json({error: "user not udated"})
-    // .then(user =>{
-    //     if(user.length > 0){
-    //         console.log("user is exist");
-    //         const { sold } = req.body;
-    //         console.log(req.body.email ,sold)
-    //         user.sold = sold;
-    //         // 
-
-    //         // 
-    //         // user.save().then(() => console.log('user modifié'));
-    //         return res.json({message : "updated"})
-    //     }else{
-    //         return res.json({message : "User not exist"})
-    //     };
-        
-    // }).catch(err => res.json({ error : err }));
 };
+
+// info
+exports.getProfileInfo = (req, res, next) => {
+    User.findOne({email: req.params.email}, (error, Uemail) => {
+        if(error)
+            return res.status(400).json({error: error})
+
+        req.userUnfo = Uemail
+            next()
+    })
+}
+
+exports.getuserUnfo = (req, res) => {
+    res.send(req.userUnfo)
+}
+
+// // info
+// exports.getInfoUser = (req, res, next) => {
+//     User.findOne({email: req.params.email}, (error, Uemail) => {
+//         if(error)
+//             return res.status(400).json({error: error})
+
+//         req.userUnfo = Uemail
+//             next()
+//     })
+// }
 
 // User.findOne({email: req.body.email}, function(err, user){
 //     if(!err) {
