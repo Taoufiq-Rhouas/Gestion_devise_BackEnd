@@ -10,7 +10,7 @@ const {signup,checkUserIsExistAndDeposit,getProfileInfo,getuserUnfo,getUserTotal
 // router.post('/signUp', SignUpValidator, checkUserIsExist, signup)
 router.post('/signUp', signup);
 router.put('/Deposit/',checkUserIsExistAndDeposit);
-router.get('/buyCrypto/',getUserTotalAmount, checkUserTotalAmount,buyCrypto);
+router.post('/buyCrypto/',getUserTotalAmount, checkUserTotalAmount,buyCrypto);
 // router.post('/addMoneyToWallet', addMoneyToWallet)
 // router.post('/buy', getUserTotalAmount, checkUserTotalAmount, buyCrypto, addBuyToWallet)
 // router.post('/sell', getUserTotalAmount, checkWalletTotalAmount, sellCrypto, addSellToWallet)
