@@ -85,6 +85,96 @@ exports.getuserUnfo = (req, res) => {
     res.send(req.userUnfo)
 }
 
+
+exports.getUserTotalAmount = (req, res, next) => {
+    User.findOne({email: req.body.email}, (error, Uemail) => {
+        if(error)
+            return res.status(400).json({error: error})
+
+        req.userSold = Uemail;
+        console.log(Uemail.sold)
+            next()
+    })
+}
+exports.checkUserTotalAmount = (req, res, next) => {
+    if(req.userSold.sold < req.body.SoldBuy)
+        return res.status(400).json({error: "you not have enogth money to buy"})
+
+    next()
+}
+
+exports.buyCrypto = (req, res, next) => {
+    const conditions = {email: req.body.email}
+    // const Crypto = req.body.Crypto;
+    // console.log("Crypto : ",Crypto)
+    // const update = {};
+    if(req.body.Crypto == "MAD"){
+        update = {sold: req.userSold.sold - req.body.SoldBuy,SoldMAD: req.userSold.SoldMAD + req.body.SoldBuy}
+    }else if(req.body.Crypto == "BTC"){
+        update = {sold: req.userSold.sold - req.body.SoldBuy,SoldBTC: req.userSold.SoldBTC + req.body.SoldBuy}
+    }else if(req.body.Crypto == "USD"){
+        update = {sold: req.userSold.sold - req.body.SoldBuy,SoldUSD: req.userSold.SoldUSD + req.body.SoldBuy}
+    }else if(req.body.Crypto == "BTC"){
+        update = {sold: req.userSold.sold - req.body.SoldBuy,SoldBTC: req.userSold.SoldBTC + req.body.SoldBuy}
+    }else if(req.body.Crypto == "GBP"){
+        update = {sold: req.userSold.sold - req.body.SoldBuy,SoldGBP: req.userSold.SoldGBP + req.body.SoldBuy}
+    }else if(req.body.Crypto == "KWD"){
+        update = {sold: req.userSold.sold - req.body.SoldBuy,SoldKWD: req.userSold.SoldKWD + req.body.SoldBuy}
+    }else if(req.body.Crypto == "AED"){
+        update = {sold: req.userSold.sold - req.body.SoldBuy,SoldAED: req.userSold.SoldAED + req.body.SoldBuy}
+    }else if(req.body.Crypto == "AFN"){
+        update = {sold: req.userSold.sold - req.body.SoldBuy,SoldAFN: req.userSold.SoldAFN + req.body.SoldBuy}
+    }else if(req.body.Crypto == "ALL"){
+        update = {sold: req.userSold.sold - req.body.SoldBuy,SoldALL: req.userSold.SoldALL + req.body.SoldBuy}
+    }else if(req.body.Crypto == "AMD"){
+        update = {sold: req.userSold.sold - req.body.SoldBuy,SoldAMD: req.userSold.SoldAMD + req.body.SoldBuy}
+    }else if(req.body.Crypto == "ANG"){
+        update = {sold: req.userSold.sold - req.body.SoldBuy,SoldANG: req.userSold.SoldANG + req.body.SoldBuy}
+    }else if(req.body.Crypto == "AOA"){
+        update = {sold: req.userSold.sold - req.body.SoldBuy,SoldAOA: req.userSold.SoldAOA + req.body.SoldBuy}
+    }else if(req.body.Crypto == "ARS"){
+        update = {sold: req.userSold.sold - req.body.SoldBuy,SoldARS: req.userSold.SoldARS + req.body.SoldBuy}
+    }else if(req.body.Crypto == "AUD"){
+        update = {sold: req.userSold.sold - req.body.SoldBuy,SoldAUD: req.userSold.SoldAUD + req.body.SoldBuy}
+    }else if(req.body.Crypto == "AWG"){
+        update = {sold: req.userSold.sold - req.body.SoldBuy,SoldAWG: req.userSold.SoldAWG + req.body.SoldBuy}
+    }
+    // const options = {upsert: true}
+
+    // User.findOneAndUpdate(conditions, update, options, (error, afterBuy) => {
+    User.findOneAndUpdate(conditions, update, (error, afterBuy) => {
+        if(error)
+            return res.status(400).json({error: error})
+
+        // next()
+        res.send(afterBuy)
+    })
+}
+// exports.buyCrypto = (req, res) => {
+//     const conditions = {email: req.body.email}
+//     const Crypto = req.body.Crypto;
+//     console.log("Crypto : ",Crypto)
+//     if(conditions.email === "tof@gmail.com"){
+//         update = {sold: req.userSold.sold - req.body.SoldBuy,SoldMAD: req.userSold.SoldMAD + req.body.SoldBuy}
+//     }else if(conditions.email === "tof@gmail.comjj"){
+//         update = {sold: req.userSold.sold - req.body.SoldBuy,SoldBTC: req.userSold.SoldBTC + req.body.SoldBuy}
+//     }
+//     res.send(update)
+// };
+
+// exports.buyCrypto = async (req, res) => {
+//     let updateUser = await User.findOneAndUpdate({email: req.body.email},{sold:req.body.sold})
+
+//     if(updateUser)
+//         return res.json({userInfo: updateUser})
+
+//     res.status(400).json({error: "user not udated"})
+// };
+
+
+// exports.getuserUnfovv = (req, res) => {
+//     res.send(req.userSold)
+// }
 // // info
 // exports.getInfoUser = (req, res, next) => {
 //     User.findOne({email: req.params.email}, (error, Uemail) => {
