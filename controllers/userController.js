@@ -118,10 +118,10 @@ exports.buyCrypto = (req, res, next) => {
     if(req.body.Crypto == "MAD"){
         // update = {sold: req.userSold.sold - req.body.SoldBuy,SoldMAD: req.userSold.SoldMAD + req.body.SoldBuy,SoldMADCryptobuy:req.userSold.SoldMADCryptobuy +  req.body.SoldCryptobuy}
         update = {
-                    sold: req.userSold.sold - req.body.SoldDeposit,
+                    sold: parseFloat(req.userSold.sold) - parseFloat(req.body.SoldDeposit),
                     SoldMAD:{
-                        SoldMADdeposit: req.userSold.SoldMAD.SoldMADdeposit + req.body.SoldDeposit,
-                        SoldMADCryptobuy:req.userSold.SoldMAD.SoldMADCryptobuy +  req.body.SoldCryptobuy
+                        SoldMADdeposit: parseFloat(req.userSold.SoldMAD.SoldMADdeposit) + parseFloat(req.body.SoldDeposit),
+                        SoldMADCryptobuy: parseFloat(req.userSold.SoldMAD.SoldMADCryptobuy)  + parseFloat(req.body.SoldCryptobuy) 
                     },
                     // coins:{
                     //     SoldMAD:{
@@ -135,127 +135,127 @@ exports.buyCrypto = (req, res, next) => {
     }else if(req.body.Crypto == "BTC"){
         // update = {sold: req.userSold.sold - req.body.SoldBuy,SoldBTC: req.userSold.SoldBTC + req.body.SoldBuy}
         update = {
-            sold: req.userSold.sold - req.body.SoldDeposit,
+            sold: parseFloat(req.userSold.sold) - parseFloat(req.body.SoldDeposit),
             SoldBTC:{
-                SoldBTCdeposit: req.userSold.SoldBTC.SoldBTCdeposit + req.body.SoldDeposit,
-                SoldBTCCryptobuy:req.userSold.SoldBTC.SoldBTCCryptobuy +  req.body.SoldCryptobuy
+                SoldBTCdeposit: parseFloat(req.userSold.SoldBTC.SoldBTCdeposit) + parseFloat(req.body.SoldDeposit),
+                SoldBTCCryptobuy:parseFloat(req.userSold.SoldBTC.SoldBTCCryptobuy) +  parseFloat(req.body.SoldCryptobuy)
             },
         }
     }else if(req.body.Crypto == "USD"){
         // update = {sold: req.userSold.sold - req.body.SoldBuy,SoldUSD: req.userSold.SoldUSD + req.body.SoldBuy}
         update = {
-            sold: req.userSold.sold - req.body.SoldDeposit,
+            sold: parseFloat(req.userSold.sold) - parseFloat(req.body.SoldDeposit),
             SoldBTC:{
-                SoldBTCdeposit: req.userSold.SoldBTC.SoldBTCdeposit + req.body.SoldDeposit,
-                SoldBTCCryptobuy:req.userSold.SoldBTC.SoldBTCCryptobuy +  req.body.SoldCryptobuy
+                SoldBTCdeposit: parseFloat(req.userSold.SoldBTC.SoldBTCdeposit) + parseFloat(req.body.SoldDeposit),
+                SoldBTCCryptobuy:parseFloat(req.userSold.SoldBTC.SoldBTCCryptobuy) +  parseFloat(req.body.SoldCryptobuy)
             },
         }
     }else if(req.body.Crypto == "BTC"){
         // update = {sold: req.userSold.sold - req.body.SoldBuy,SoldBTC: req.userSold.SoldBTC + req.body.SoldBuy}
         update = {
-            sold: req.userSold.sold - req.body.SoldDeposit,
+            sold: parseFloat(req.userSold.sold) - parseFloat(req.body.SoldDeposit),
             SoldBTC:{
-                SoldBTCdeposit: req.userSold.SoldBTC.SoldBTCdeposit + req.body.SoldDeposit,
-                SoldBTCCryptobuy:req.userSold.SoldBTC.SoldBTCCryptobuy +  req.body.SoldCryptobuy
+                SoldBTCdeposit: parseFloat(req.userSold.SoldBTC.SoldBTCdeposit) + parseFloat(req.body.SoldDeposit),
+                SoldBTCCryptobuy:parseFloat(req.userSold.SoldBTC.SoldBTCCryptobuy) +  parseFloat(req.body.SoldCryptobuy)
             },
         }
     }else if(req.body.Crypto == "GBP"){
         // update = {sold: req.userSold.sold - req.body.SoldBuy,SoldGBP: req.userSold.SoldGBP + req.body.SoldBuy}
         update = {
-            sold: req.userSold.sold - req.body.SoldDeposit,
+            sold: parseFloat(req.userSold.sold) - parseFloat(req.body.SoldDeposit),
             SoldGBP:{
-                SoldGBPdeposit: req.userSold.SoldGBP.SoldGBPdeposit + req.body.SoldDeposit,
-                SoldGBPCryptobuy:req.userSold.SoldGBP.SoldGBPCryptobuy +  req.body.SoldCryptobuy
+                SoldGBPdeposit: parseFloat(req.userSold.SoldGBP.SoldGBPdeposit) + parseFloat(req.body.SoldDeposit),
+                SoldGBPCryptobuy:parseFloat(req.userSold.SoldGBP.SoldGBPCryptobuy) +  parseFloat(req.body.SoldCryptobuy)
             },
         }
     }else if(req.body.Crypto == "KWD"){
         // update = {sold: req.userSold.sold - req.body.SoldBuy,SoldKWD: req.userSold.SoldKWD + req.body.SoldBuy}
         update = {
-            sold: req.userSold.sold - req.body.SoldDeposit,
+            sold: parseFloat(req.userSold.sold) - parseFloat(req.body.SoldDeposit),
             SoldKWD:{
-                SoldKWDdeposit: req.userSold.SoldKWD.SoldKWDdeposit + req.body.SoldDeposit,
-                SoldKWDCryptobuy:req.userSold.SoldKWD.SoldKWDCryptobuy +  req.body.SoldCryptobuy
+                SoldKWDdeposit: parseFloat(req.userSold.SoldKWD.SoldKWDdeposit) + parseFloat(req.body.SoldDeposit),
+                SoldKWDCryptobuy:parseFloat(req.userSold.SoldKWD.SoldKWDCryptobuy) +  parseFloat(req.body.SoldCryptobuy)
             },
         }
     }else if(req.body.Crypto == "AED"){
         // update = {sold: req.userSold.sold - req.body.SoldBuy,SoldAED: req.userSold.SoldAED + req.body.SoldBuy}
         update = {
-            sold: req.userSold.sold - req.body.SoldDeposit,
+            sold: parseFloat(req.userSold.sold) - parseFloat(req.body.SoldDeposit),
             SoldAED:{
-                SoldAEDdeposit: req.userSold.SoldAED.SoldAEDdeposit + req.body.SoldDeposit,
-                SoldAEDCryptobuy:req.userSold.SoldAED.SoldAEDCryptobuy +  req.body.SoldCryptobuy
+                SoldAEDdeposit: parseFloat(req.userSold.SoldAED.SoldAEDdeposit) + parseFloat(req.body.SoldDeposit),
+                SoldAEDCryptobuy:parseFloat(req.userSold.SoldAED.SoldAEDCryptobuy) +  parseFloat(req.body.SoldCryptobuy)
             },
         }
     }else if(req.body.Crypto == "AFN"){
         // update = {sold: req.userSold.sold - req.body.SoldBuy,SoldAFN: req.userSold.SoldAFN + req.body.SoldBuy}
         update = {
-            sold: req.userSold.sold - req.body.SoldDeposit,
+            sold: parseFloat(req.userSold.sold) - parseFloat(req.body.SoldDeposit),
             SoldAFN:{
-                SoldAFNdeposit: req.userSold.SoldAFN.SoldAFNdeposit + req.body.SoldDeposit,
-                SoldAFNCryptobuy:req.userSold.SoldAFN.SoldAFNCryptobuy +  req.body.SoldCryptobuy
+                SoldAFNdeposit: parseFloat(req.userSold.SoldAFN.SoldAFNdeposit) + parseFloat(req.body.SoldDeposit),
+                SoldAFNCryptobuy:parseFloat(req.userSold.SoldAFN.SoldAFNCryptobuy) +  parseFloat(req.body.SoldCryptobuy)
             },
         }
     }else if(req.body.Crypto == "ALL"){
         // update = {sold: req.userSold.sold - req.body.SoldBuy,SoldALL: req.userSold.SoldALL + req.body.SoldBuy}
         update = {
-            sold: req.userSold.sold - req.body.SoldDeposit,
+            sold: parseFloat(req.userSold.sold) - parseFloat(req.body.SoldDeposit),
             SoldALL:{
-                SoldALLdeposit: req.userSold.SoldALL.SoldALLdeposit + req.body.SoldDeposit,
-                SoldALLCryptobuy:req.userSold.SoldALL.SoldALLCryptobuy +  req.body.SoldCryptobuy
+                SoldALLdeposit: parseFloat(req.userSold.SoldALL.SoldALLdeposit) + parseFloat(req.body.SoldDeposit),
+                SoldALLCryptobuy:parseFloat(req.userSold.SoldALL.SoldALLCryptobuy) +  parseFloat(req.body.SoldCryptobuy)
             },
         }
     }else if(req.body.Crypto == "AMD"){
         // update = {sold: req.userSold.sold - req.body.SoldBuy,SoldAMD: req.userSold.SoldAMD + req.body.SoldBuy}
         update = {
-            sold: req.userSold.sold - req.body.SoldDeposit,
+            sold: parseFloat(req.userSold.sold) - parseFloat(req.body.SoldDeposit),
             SoldAMD:{
-                SoldAMDdeposit: req.userSold.SoldAMD.SoldAMDdeposit + req.body.SoldDeposit,
-                SoldAMDCryptobuy:req.userSold.SoldAMD.SoldAMDCryptobuy +  req.body.SoldCryptobuy
+                SoldAMDdeposit: parseFloat(req.userSold.SoldAMD.SoldAMDdeposit) + parseFloat(req.body.SoldDeposit),
+                SoldAMDCryptobuy:parseFloat(req.userSold.SoldAMD.SoldAMDCryptobuy) +  parseFloat(req.body.SoldCryptobuy)
             },
         }
     }else if(req.body.Crypto == "ANG"){
         // update = {sold: req.userSold.sold - req.body.SoldBuy,SoldANG: req.userSold.SoldANG + req.body.SoldBuy}
         update = {
-            sold: req.userSold.sold - req.body.SoldDeposit,
+            sold: parseFloat(req.userSold.sold) - parseFloat(req.body.SoldDeposit),
             SoldANG:{
-                SoldANGdeposit: req.userSold.SoldANG.SoldANGdeposit + req.body.SoldDeposit,
-                SoldANGCryptobuy:req.userSold.SoldANG.SoldANGCryptobuy +  req.body.SoldCryptobuy
+                SoldANGdeposit: parseFloat(req.userSold.SoldANG.SoldANGdeposit) + parseFloat(req.body.SoldDeposit),
+                SoldANGCryptobuy:parseFloat(req.userSold.SoldANG.SoldANGCryptobuy) +  parseFloat(req.body.SoldCryptobuy)
             },
         }
     }else if(req.body.Crypto == "AOA"){
         // update = {sold: req.userSold.sold - req.body.SoldBuy,SoldAOA: req.userSold.SoldAOA + req.body.SoldBuy}
         update = {
-            sold: req.userSold.sold - req.body.SoldDeposit,
+            sold: parseFloat(req.userSold.sold) - parseFloat(req.body.SoldDeposit),
             SoldAOA:{
-                SoldAOAdeposit: req.userSold.SoldAOA.SoldAOAdeposit + req.body.SoldDeposit,
-                SoldAOACryptobuy:req.userSold.SoldAOA.SoldAOACryptobuy +  req.body.SoldCryptobuy
+                SoldAOAdeposit: parseFloat(req.userSold.SoldAOA.SoldAOAdeposit) + parseFloat(req.body.SoldDeposit),
+                SoldAOACryptobuy:parseFloat(req.userSold.SoldAOA.SoldAOACryptobuy) +  parseFloat(req.body.SoldCryptobuy)
             },
         }
     }else if(req.body.Crypto == "ARS"){
         // update = {sold: req.userSold.sold - req.body.SoldBuy,SoldARS: req.userSold.SoldARS + req.body.SoldBuy}
         update = {
-            sold: req.userSold.sold - req.body.SoldDeposit,
+            sold: parseFloat(req.userSold.sold) - parseFloat(req.body.SoldDeposit),
             SoldARS:{
-                SoldARSdeposit: req.userSold.SoldARS.SoldARSdeposit + req.body.SoldDeposit,
-                SoldARSCryptobuy:req.userSold.SoldARS.SoldARSCryptobuy +  req.body.SoldCryptobuy
+                SoldARSdeposit: parseFloat(req.userSold.SoldARS.SoldARSdeposit) + parseFloat(req.body.SoldDeposit),
+                SoldARSCryptobuy:parseFloat(req.userSold.SoldARS.SoldARSCryptobuy) +  parseFloat(req.body.SoldCryptobuy)
             },
         }
     }else if(req.body.Crypto == "AUD"){
         // update = {sold: req.userSold.sold - req.body.SoldBuy,SoldAUD: req.userSold.SoldAUD + req.body.SoldBuy}
         update = {
-            sold: req.userSold.sold - req.body.SoldDeposit,
+            sold: parseFloat(req.userSold.sold) - parseFloat(req.body.SoldDeposit),
             SoldAUD:{
-                SoldAUDdeposit: req.userSold.SoldAUD.SoldAUDdeposit + req.body.SoldDeposit,
-                SoldAUDCryptobuy:req.userSold.SoldAUD.SoldAUDCryptobuy +  req.body.SoldCryptobuy
+                SoldAUDdeposit: parseFloat(req.userSold.SoldAUD.SoldAUDdeposit) + parseFloat(req.body.SoldDeposit),
+                SoldAUDCryptobuy:parseFloat(req.userSold.SoldAUD.SoldAUDCryptobuy) +  parseFloat(req.body.SoldCryptobuy)
             },
         }
     }else if(req.body.Crypto == "AWG"){
         // update = {sold: req.userSold.sold - req.body.SoldBuy,SoldAWG: req.userSold.SoldAWG + req.body.SoldBuy}
         update = {
-            sold: req.userSold.sold - req.body.SoldDeposit,
+            sold: parseFloat(req.userSold.sold) - parseFloat(req.body.SoldDeposit),
             SoldAWG:{
-                SoldAWGdeposit: req.userSold.SoldAWG.SoldAWGdeposit + req.body.SoldDeposit,
-                SoldAWGCryptobuy:req.userSold.SoldAWG.SoldAWGCryptobuy +  req.body.SoldCryptobuy
+                SoldAWGdeposit: parseFloat(req.userSold.SoldAWG.SoldAWGdeposit) + parseFloat(req.body.SoldDeposit),
+                SoldAWGCryptobuy:parseFloat(req.userSold.SoldAWG.SoldAWGCryptobuy) +  parseFloat(req.body.SoldCryptobuy)
             },
         }
     }
@@ -286,10 +286,10 @@ exports.sellCrypto = (req, res, next) => {
     if(req.body.Crypto == "MAD"){
         // update = {sold: req.userSold.sold - req.body.SoldBuy,SoldMAD: req.userSold.SoldMAD + req.body.SoldBuy,SoldMADCryptobuy:req.userSold.SoldMADCryptobuy +  req.body.SoldCryptobuy}
         update = {
-                    sold: req.body.newSoldTotal,
+                    sold: parseFloat(req.body.newSoldTotal),
                     SoldMAD:{
-                        SoldMADdeposit: req.body.newSoldDeposit,
-                        SoldMADCryptobuy: req.body.newSoldCryptobuy
+                        SoldMADdeposit: parseFloat(req.body.newSoldDeposit),
+                        SoldMADCryptobuy: parseFloat(req.body.newSoldCryptobuy)
                     },
                 }
     }else if(req.body.Crypto == "BTC"){
