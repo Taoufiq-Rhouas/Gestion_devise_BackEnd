@@ -219,6 +219,18 @@ const userSchema = new mongoose.Schema({
             default: 0
         }
     },
+    SoldUSD: {
+        SoldUSDdeposit: {
+            type: Number,
+            require: true,
+            default: 0
+        },
+        SoldUSDCryptobuy: {
+            type: Number,
+            require: true,
+            default: 0
+        }
+    },
     SoldGBP: {
         SoldGBPdeposit: {
             type: Number,
@@ -351,6 +363,7 @@ const userSchema = new mongoose.Schema({
             default: 0
         }
     },
+    
 
     // SoldMAD: {
     //     type: Number,
